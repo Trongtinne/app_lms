@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Detail - {{ module.module_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .module-info {
+            margin-bottom: 20px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Module Detail</h1>
+        <div class="module-info">
+            <p><strong>Module Name:</strong> {{ module.module_name }}</p>
+            <p><strong>Module URL:</strong> <a href="{% url module.module_url %}">Link</a></p>
+            <p><strong>Icon:</strong> <i class="{{ module.icon }}"></i></p>
+            <p><strong>Module Group:</strong> {{ module.module_group.group_name }}</p>
+        </div>
+        <a class="back-link" href="{% url 'module_group:module_list' %}">Back to Module List</a>
+    </div>
+</body>
+</html>
